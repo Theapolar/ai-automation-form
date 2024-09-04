@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & Automation Interest Form</title>
+    <style>
+        #ai-automation-form {
+            font-family: 'Futura', Arial, sans-serif;
+            color: #45525c;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #376464;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .question {
+            display: none;
+            margin-bottom: 20px;
+        }
+        .question.active {
+            display: block;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #d49772;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #d49772;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background-color: #376464;
+            transform: scale(1.05);
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #e8cdb7;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .progress {
+            width: 0;
+            height: 10px;
+            background-color: #376464;
+            border-radius: 10px;
+            transition: width 0.5s ease-in-out;
+        }
+        .thank-you {
+            display: none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="ai-automation-form">
+        <div class="container">
+            <h1>AI & Automation Interest Form</h1>
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+            <form id="questionnaireForm">
+                <div class="question active" id="q1">
+                    <label for="email">What's your email address?</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="question" id="q2">
+                    <label for="name">What's your name?</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="question" id="q3">
+                    <label for="company">What's your company name?</label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+                <div class="question" id="q4">
+                    <label for="role">What's your role in the company?</label>
+                    <input type="text" id="role" name="role" required>
+                </div>
+                <div class="question" id="q5">
+                    <label for="industry">What is your company's primary industry or sector?</label>
+                    <input type="text" id="industry" name="industry">
+                </div>
+                <div class="question" id="q6">
+                    <label for="department">Which department or team are you looking to make more efficient with AI or automation?</label>
+                    <select id="department" name="department">
+                        <option value="">Select an option</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Customer Service">Customer Service</option>
+                        <option value="HR">HR</option>
+                        <option value="Operations">Operations</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="question" id="q7">
+                    <label for="process">What specific business process or task would you most like to automate or enhance with AI?</label>
+                    <textarea id="process" name="process" rows="3"></textarea>
+                </div>
+                <div class="question" id="q8">
+                    <label>Which AI or automation tools or systems do you use today, if any? (Select all that apply)</label>
+                    <div>
+                        <input type="checkbox" id="zapier" name="tools" value="Zapier">
+                        <label for="zapier">Zapier</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="make" name="tools" value="Make">
+                        <label for="make">Make</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="chatgpt" name="tools" value="ChatGPT">
+                        <label for="chatgpt">ChatGPT</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="openai" name="tools" value="OpenAI API">
+                        <label for="openai">OpenAI API</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="claude" name="tools" value="Anthropic Claude">
+                        <label for="claude">Anthropic Claude</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="midjourney" name="tools" value="Midjourney">
+                        <label for="midjourney">Image generators like Midjourney</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="notion" name="tools" value="Notion">
+                        <label for="notion">Notion</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="other_tools" name="tools" value="Other">
+                        <label for="other_tools">Other</label>
+                    </div>
+                </div>
+                <div class="question" id="q9">
+                    <label>Which of the following AI-powered capabilities are you most interested in? (Select up to 3)</label>
+                    <div>
+                        <input type="checkbox" id="content" name="capabilities" value="Content generation">
+                        <label for="content">Content generation (blog posts, social media, etc.)</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="chatbots" name="capabilities" value="Chatbots">
+                        <label for="chatbots">Chatbots for customer service or lead gen</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="data" name="capabilities" value="Data analysis">
+                        <label for="data">Data analysis and insights</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="image" name="capabilities" value="AI Image or video">
+                        <label for="image">AI Image or video generation</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="banner" name="capabilities" value="Visual Banner automation">
+                        <label for="banner">On-brand Visual Banner automation</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="anonymizing" name="capabilities" value="Anonymizing datasets">
+                        <label for="anonymizing">Anonymizing datasets</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="connect" name="capabilities" value="Connect apps">
+                        <label for="connect">Connect apps to automate data entry</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="custom" name="capabilities" value="Customized AI app">
+                        <label for="custom">Customized AI app for internal use or to offer to clients</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="other_capabilities" name="capabilities" value="Other">
+                        <label for="other_capabilities">Other</label>
+                    </div>
+                </div>
+                <div class="question" id="q10">
+                    <label for="budget">What's your estimated budget range for AI and automation services?</label>
+                    <select id="budget" name="budget">
+                        <option value="">Select a range</option>
+                        <option value="0-5000">$0 - $5,000</option>
+                        <option value="5001-10000">$5,001 - $10,000</option>
+                        <option value="10001-25000">$10,001 - $25,000</option>
+                        <option value="25001+">$25,001+</option>
+                    </select>
+                </div>
+                <div class="question" id="q11">
+                    <label>Would you be interested in a free consultation?</label>
+                    <div>
+                        <input type="radio" id="yes" name="consultation" value="Yes">
+                        <label for="yes">Yes, I'd like to schedule a consultation</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="no" name="consultation" value="No">
+                        <label for="no">No, just send me more information</label>
+                    </div>
+                </div>
+                <button type="button" id="prevBtn" style="display:none;">Previous</button>
+                <button type="button" id="nextBtn">Next</button>
+                <button type="submit" id="submitBtn" style="display:none;">Submit</button>
+            </form>
+            <div class="thank-you" id="thankYou">
+                <h2>Thank you for your interest!</h2>
+                <p>I'll get back to you as soon as possible.</p>
+                <p>In the meantime, here's something to consider...</p>
+                <p>AI and automation aren't just about efficiency—they're about unlocking your team's potential. Imagine the innovative projects your team could tackle if repetitive tasks were handled automatically. Get ready to transform your workflow and boost your creativity!</p>
+            </div>
+        </div>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('questionnaireForm');
+    const questions = document.querySelectorAll('.question');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const submitBtn = document.getElementById('submitBtn');
+    const progress = document.getElementById('progress');
+    const thankYou = document.getElementById('thankYou');
+    let currentQuestion = 0;
+    let responses = {};
+
+    function showQuestion(n) {
+        questions[currentQuestion].classList.remove('active');
+        questions[n].classList.add('active');
+        currentQuestion = n;
+
+        prevBtn.style.display = currentQuestion === 0 ? 'none' : 'inline-block';
+        
+        if (currentQuestion === questions.length - 1) {
+            nextBtn.style.display = 'none';
+            submitBtn.style.display = 'inline-block';
+        } else {
+            nextBtn.style.display = 'inline-block';
+            submitBtn.style.display = 'none';
+        }
+
+        updateProgress();
+    }
+
+    function updateProgress() {
+        const progressPercentage = ((currentQuestion + 1) / questions.length) * 100;
+        progress.style.width = progressPercentage + '%';
+    }
+
+    function storeResponse() {
+        const inputs = questions[currentQuestion].querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            if (input.type === 'checkbox') {
+                if (!responses[input.name]) {
+                    responses[input.name] = [];
+                }
+                if (input.checked) {
+                    responses[input.name].push(input.value);
+                }
+            } else if (input.type === 'radio') {
+                if (input.checked) {
+                    responses[input.name] = input.value;
+                }
+            } else {
+                responses[input.name] = input.value;
+            }
+        });
+    }
+
+    nextBtn.addEventListener('click', () => {
+        storeResponse();
+        if (currentQuestion < questions.length - 1) {
+            showQuestion(currentQuestion + 1);
+        }
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (currentQuestion > 0) {
+            showQuestion(currentQuestion - 1);
+        }
+    });
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        storeResponse();
+        
+        fetch('https://script.google.com/macros/s/AKfycbzCzKmQPM1clJF089G4AsXgY4dzkvsDPq2KUomy77pQo7lqr74TcB1--Qd4Hiox-9txIw/exec', {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(responses)
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log('Success:', data);
+            try {
+                const jsonData = JSON.parse(data);
+                if (jsonData.result === 'success') {
+                    form.style.display = 'none';
+                    thankYou.style.display = 'block';
+                } else {
+                    throw new Error('Unexpected response from server');
+                }
+            } catch (error) {
+                console.error('Error parsing response:', error);
+                alert('An error occurred while processing the response. Please try again.');
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again. Error details: ' + error.message);
+        });
+    });
+
+    // Initialize the form
+    updateProgress();
+});
+</script>
+</body>
+</html>
